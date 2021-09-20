@@ -40,7 +40,7 @@ def drawMarks(d, rpm, f, mark_size, half_marks=False):
     radius = d / 2
     arr.append([rpm, num_of_marks])
 
-    for i in range(int(customRound(num_of_marks, .6, 0))):
+    for _ in range(int(customRound(num_of_marks, .6, 0))):
         angle += step
         rad = radians(angle)
         p1 = (MIDPOINT[0] + radius * sin(rad), MIDPOINT[1] + radius * cos(rad))
@@ -80,7 +80,6 @@ def drawMarks2(d, rpm, f, mark_size, half_marks=False):
 
 
 def customRound(num, treshold, digits=0):
-    dec = num % 1
     if num % 1 > treshold:
         return ceil(num)
     else:
@@ -191,7 +190,6 @@ def CreateStrobeDisk_advanced(f=50):
 
 
 def saveDisc(img, name):
-    d = DISC_DIAM * mm2px
 
     x1, y1 = MARGIN, (SIZE[1] - SIZE[0]) / 2 + MARGIN
     x2, y2 = SIZE[0] - MARGIN, (SIZE[1] - SIZE[0]) / 2 + SIZE[0] - MARGIN
